@@ -2,14 +2,9 @@ import Button from '../../UI/Button/Button'
 import styles from './Main.module.scss'
 
 const Information = ({ movie, isPlayerShow, setIsPlayerShow }) => {
-    const addToFavorites = (movieName) => {
-        let favorites = localStorage.getItem('favMovies')
-
-        if(favorites) {
-            favorites = JSON.parse(favorites)
-            localStorage.setItem( 'favMovies', [...favorites, movieName])
-            alert(`${movieName} is in your Favorites list now`)
-        }
+    const addToFavorites = () => {
+              localStorage.setItem( 'favMovies', [movie.name])
+              alert(`${movie.name} is in your Favorites list now`)
     }
 
   return (

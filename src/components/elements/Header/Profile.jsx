@@ -1,6 +1,11 @@
+import { useState } from 'react'
 import styles from './Header.module.scss'
+import ProfileModal from '../ProfileModal/ProfileModal'
 
 const Profile = () => {
+    const [showModal, setShowModal] = useState(false)
+
+
   return (
     <div className={styles['profile-wrapper']}>
         <div className={styles.notification}>
@@ -14,8 +19,10 @@ const Profile = () => {
                     alt="" 
                 />
             </div>
-            <i className='bx bx-caret-down'></i>
+            <button onClick={() => setShowModal((prev) => !prev)}><i className='bx bx-caret-down'></i></button>
         </div>
+        {showModal ? 
+        <ProfileModal/> : null}
     </div>
   )
 }
